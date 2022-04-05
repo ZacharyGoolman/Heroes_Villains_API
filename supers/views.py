@@ -7,9 +7,11 @@ from .serializers import SupersSerializer
 from .models import Supers
 
 
-@api_view(['GET'])
-def supers_detail(request):
-    supers = get_object_or_404
-    if request.method == 'GET':
-        serializer = SupersSerializer
-        return response(serializer.data)
+@api_view(['GET', 'POST'])
+def supers_list(request):
+    supers = get_object_or_404(Supers)
+    request.method == 'GET'
+    serializer = SupersSerializer
+    return response(serializer.data)
+def supers_detail
+        
