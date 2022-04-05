@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#Will always import the path function and admin function
+#URLS will tie from your API as well as you API's urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/supers/', include('supers.urls')),
-    path('api/super_tpyes.', include('super_types.urls'))
+    # path('api/supers_tpyes.', include('supers_types.urls'))
 ]

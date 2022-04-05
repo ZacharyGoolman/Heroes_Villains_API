@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#Ensure you have added the app's that you created into the installed apps as well as the rest_framework
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
