@@ -27,7 +27,7 @@ def supers_list(request):
 def supers_detail(request, pk):
     supers = get_object_or_404(Supers, pk=pk)   
     if request.method == 'GET':
-        serializer = SupersSerializer
+        serializer = SupersSerializer(supers)
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = SupersSerializer(supers, data=request.data)
