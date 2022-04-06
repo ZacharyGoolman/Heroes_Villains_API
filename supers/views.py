@@ -5,14 +5,25 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from .serializers import SupersSerializer
 from .models import Supers
-
+from supers_types.models import Super_Types
 
 @api_view(['GET', 'POST'])
 def supers_list(request):
     
     
     if request.method == 'GET':
+        supers_type_param = request.query_params.get('type')
+        sort_param = request.query_params.get('type')
         supers = Supers.objects.all()
+        if supers_type_param:
+            supers = supers.filter(supers_type__type=supers_type_param)
+        custom_response_dictionary = {}
+        supers = supers.filter(supers_type__type='Heroes')
+        supers = supers.filter(supers_type__type='Villains')
+        custom_response_dictionary[supers.type] = {
+            'Heroes': supers.type,
+            'Villains': supers.type
+        }
         serializer = SupersSerializer(supers, many=True) 
         return Response(serializer.data)
 
