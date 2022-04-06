@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "444b8acd-b686-4632-8f63-02dcc854975b",
+		"name": "Heroes_Villains_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Supers (supers App)",
+			"item": [
+				{
+					"name": "Get_All_Supers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_All_Heroes (Param)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers?type=hero",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "hero"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_All_Villains (Param)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers?type=villain",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "villain"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Super_By_Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Super",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lord Voldemort\",\r\n    \"alter_ego\": \"Tom Riddle\",\r\n    \"primary_ability\": \"Master of Dark Spells\",\r\n    \"secondary_ability\": \"Non Verbal and Wandless Magic\",\r\n    \"catchphrase\": \"There is no good or evil, only power and those too weak to see it\",\r\n    \"supers_type_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Super",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marvin the Martian\",\r\n    \"alter_ego\": \"Commander (Of flying Saucer X-2)\",\r\n    \"primary_ability\": \"Illudium Q-36 Explosive Space Modulator\",\r\n    \"secondary_ability\": \"Comet Summoning!\",\r\n    \"catchphrase\": \"Wheres the KABOOM!\",\r\n    \"supers_type_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Super",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Super_Types (super_types App - Bonus Requests)",
+			"item": [
+				{
+					"name": "Get_All_Super_Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Super_Type_By_Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Super_Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Super_Type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Super_Type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
