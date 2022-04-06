@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from supers_types.serializers import SuperTypeSerializer
 from .serializers import SupersSerializer
 from .models import Supers
 from supers_types.models import Super_Types
@@ -15,17 +16,22 @@ def supers_list(request):
         supers_type_param = request.query_params.get('type')
         sort_param = request.query_params.get('type')
         supers = Supers.objects.all()
+
         if supers_type_param:
             supers = supers.filter(supers_type__type=supers_type_param)
+            serializer = SupersSerializer(supers, many=True) 
+            return Response(serializer.data)
+
         custom_response_dictionary = {}
-        supers = supers.filter(supers_type__type='Heroes')
-        supers = supers.filter(supers_type__type='Villains')
-        custom_response_dictionary[supers.type] = {
-            'Heroes': supers.type,
-            'Villains': supers.type
+        super_hero = supers.filter(supers_type__type='Heroes')
+        super_villain = supers.filter(supers_type__type='Villains')
+        super_hero_serializer = SupersSerializer(super_hero, many=True)
+        super_villain_serializer = SupersSerializer(super_villain, many=True)
+        custom_response_dictionary['supers'] = {
+            'Heroes': super_hero_serializer.data,
+            'Villains': super_villain_serializer.data
         }
-        serializer = SupersSerializer(supers, many=True) 
-        return Response(serializer.data)
+        return Response(custom_response_dictionary)
 
     elif request.method == 'POST':
         serializer = SupersSerializer(data=request.data)
